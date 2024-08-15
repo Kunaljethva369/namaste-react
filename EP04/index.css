@@ -1,0 +1,123 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.app-layout{
+    max-width: 1350px;
+    margin-top: 10px;
+    margin: 10px auto 0px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.logo img{
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+}
+
+nav ul li{
+    list-style: none;
+    cursor: pointer;
+}
+
+nav ul li a{
+    font-size: 18px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.main{
+    padding-top: 40px;
+}
+
+.search-container{
+    display: flex;
+    gap: 20px;
+}
+
+.main .search-container input{
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.main .search-container button{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding-top: 20px;
+}
+
+.card-container .card{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.card-container .card .foodImg img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-container .card p{
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.card-container .card .rating-container{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.card-container .card .rating-container h4{
+    font-size: 18px;
+}
+
+.card-container .card .rating-container img{
+    width: 30px;
+}
+
+.card-container .card:hover{
+    transform: scale(0.95, 0.95);
+    transform-origin: center center;
+    transition: 0.5s all ease-in-out;
+}
+
+
+@media only screen and (max-width:767px) {
+    .card-container{
+        grid-template-columns: auto;
+    }
+    nav{
+        padding-right: 20px;
+    }
+    .search-container{
+        justify-content: center;
+    }
+}
