@@ -19,8 +19,8 @@ const MainLayout = () => {
                 <div className="search-container">
                     <input type="text" placeholder="Search our favourite" />
                     <button>Search</button>
+                    <button style={{ cursor: "pointer" }} onClick={handleTop}>Top Rated</button>
                 </div>
-                <button style={{ marginTop: "20px",cursor: "p" }} onClick={handleTop}>Top Rated</button>
                 <div className="card-container">
                     {
                         resturantData?.map((resturant) => (

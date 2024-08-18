@@ -7,13 +7,21 @@ const MainLayout = () => {
     const [filteredRestaurant,setfilteredRestaurant] = useState([]);
     const [loading,setLoading] = useState(false);
     const [searchText,setSearchText] = useState("");
+    const [isChecked,setIsChecked] = useState(false);
+    
     const handleTop = () => {
-        const topResturrant = resturantData.filter((ele) => {
-            if (ele.info.avgRating > 4.4) {
-                return ele;
-            };
-        });
-        setfilteredRestaurant(topResturrant);
+        setIsChecked(!isChecked);
+        if (!isChecked) {
+            const topResturrant = resturantData.filter((ele) => {
+                if (ele.info.avgRating > 4.4) {
+                    return ele;
+                };
+            });
+            setfilteredRestaurant(topResturrant);
+        }
+        else {
+            setfilteredRestaurant(resturantData);
+        }
     }
 
     useEffect(() => {
@@ -30,11 +38,10 @@ const MainLayout = () => {
     }
 
 
-
     const handleSearch = () => {
         const searchTextLower = searchText.toLowerCase();
         const searchedResturant = resturantData.filter((ele) => {
-           return ele.info.name.toLowerCase().includes(searchTextLower)
+            return ele.info.name.toLowerCase().includes(searchTextLower)
         });
         setfilteredRestaurant(searchedResturant);
     }
@@ -43,9 +50,13 @@ const MainLayout = () => {
         <>
             <div className="main">
                 <div className="search-container">
-                    <input type="text" placeholder="Search our favourite" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                    <input type="text" placeholder="Search our favourite" className="input-search" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                     <button onClick={handleSearch}>Search</button>
-                    <button style={{ cursor: "pointer" }} onClick={handleTop}>Top Rated</button>
+                    <label className="checkbox-label">
+                        <input type="checkbox" className="styled-checkbox" style={{ cursor: "pointer" }} checked={isChecked} onChange={handleTop} />
+                        <span className="custom-checkbox"></span>
+                        top restaurant
+                    </label>
                 </div>
                 <div className="card-container">
                     {

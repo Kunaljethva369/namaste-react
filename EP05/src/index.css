@@ -74,6 +74,9 @@ nav ul li a{
     flex-direction: column;
     margin: 10px;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .card-container .card .foodImg img{
