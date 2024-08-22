@@ -4,7 +4,6 @@ import './index.css';
 import Header from "./components/Header";
 import MainLayout from "./components/MainLayout";
 import About from './components/About';
-import RestaurantMenu from './components/ResturantMenu/RestaurantMenu';
 import Contact from './components/Contact';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Error from "./components/Error";

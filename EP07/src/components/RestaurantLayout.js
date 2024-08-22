@@ -16,4 +16,4 @@ function RestaurantLayout() {
     )
 }
 
-export default RestaurantLayout
+export default RestaurantLayout;
