@@ -1,23 +1,9 @@
-import React,{ useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './ResturantMenu.css';
+import './ResturantHeader.css';
 
 
-function RestaurantMenu({individualRestaurant,setIndividualRestaurant}) {
-  useEffect(() => {
-    const url = window.location.href;
-    const regex = /[/&]resid=([^&]*)/;
-    const match = url.match(regex);
-    const resid = match ? match[1] : null;
-    fetchRestaurant(resid);
-  },[]);
-
-  const fetchRestaurant = async (resId) => {
-    const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-    const response = await data.json();
-    setIndividualRestaurant(response);
-  }
-
+function RestaurantMenu({individualRestaurant}) {
   return (
     <div>
       <div className='restaurant-detail-container'>

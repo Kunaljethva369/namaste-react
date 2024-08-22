@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import './MenuAccordion.css';
+import RestaurantShimmer from '../RestaurantShimmer/RestaurantShimmer'
 
 function Menu({ individualRestaurant }) {
-    console.log(individualRestaurant);
     const [openAccordions,setOpenAccordions] = useState([true,true]);
 
     const toggleAccordion = (index) => {
