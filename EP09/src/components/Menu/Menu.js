@@ -1,6 +1,5 @@
 import React,{ useState } from 'react';
 import './MenuAccordion.css';
-import RestaurantShimmer from '../RestaurantShimmer/RestaurantShimmer'
 
 function Menu({ individualRestaurant }) {
     const [openAccordions,setOpenAccordions] = useState([true,true]);
@@ -53,7 +52,9 @@ function Menu({ individualRestaurant }) {
                                                 </p>
                                             </div>
                                             <div className="item-actions">
-                                                <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item?.card?.info?.imageId}`} alt={item?.card?.info?.name} className="item-image" />
+                                                {
+                                                    item?.card?.info?.imageId ? <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${item?.card?.info?.imageId}`} alt={item?.card?.info?.name} className="item-image" /> :  ''
+                                                }
                                                 <button className="add-button">ADD</button>
                                                 {item?.card?.info?.isCustomisable && <p className="customisable-text">Customisable</p>}
                                             </div>
