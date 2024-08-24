@@ -12,8 +12,8 @@
 .shimmer-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    max-width: 800px;
+    gap: 2rem;
+    max-width: 900px;
     margin:  0px auto;
 }
 

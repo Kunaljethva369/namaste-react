@@ -6,7 +6,7 @@ import './ResturantHeader.css';
 function RestaurantMenu({individualRestaurant}) {
   return (
     <div>
-      <div className='restaurant-detail-container'>
+      <div className='restaurant-detail-container' key={individualRestaurant?.data?.cards[2]?.card?.card?.info?.id}>
         <nav className="breadcrumb">
           <ul>
             <li><Link to="/">Home</Link></li>

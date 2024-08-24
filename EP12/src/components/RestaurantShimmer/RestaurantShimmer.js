@@ -29,6 +29,14 @@ const RestaurantShimmer = () => {
         <div className="shimmer shimmer-text" style={{ width: "90%" }} />
         <div className="shimmer shimmer-circle" />
       </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="shimmer shimmer-text" style={{ width: "90%" }} />
+        <div className="shimmer shimmer-circle" />
+      </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="shimmer shimmer-text" style={{ width: "90%" }} />
+        <div className="shimmer shimmer-circle" />
+      </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ function Deals({individualRestaurant}) {
         {
           individualRestaurant?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers?.map((ele) => {
             return (
-              <div className="deal-card">
+              <div className="deal-card" key={ele?.info?.restId}>
                 <div className="deal-icon">
                   <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_96,h_96/${ele?.info?.offerLogo}`}/>
                 </div>
