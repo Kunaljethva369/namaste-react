@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/logo.png';
+// import logo from '../../assets/favicon.png';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="logo">
-                <img src={logo} alt="logo" />
+                <Link to="/"><img src="../../assets/favicon.png" alt="logo" /></Link>
             </div>
             <nav>
                 <ul>

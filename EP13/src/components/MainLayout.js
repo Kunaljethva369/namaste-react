@@ -15,7 +15,7 @@ const MainLayout = () => {
 
     const fetchData = async () => {
         setLoading(true);
-        const data = await fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
         const response = await data.json();
         setResturantData(response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredRestaurant(response?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -34,7 +34,7 @@ const MainLayout = () => {
                             loading ? <Shimmer /> : <Resturant resturantData={filteredRestaurant} />
                         }
                     </div>
-                </div> : <h1 style={{textAlign:"center"}}>Looks like your are not connect to Internet</h1>
+                </div> : <h1 style={{textAlign:"center", paddingTop:"150px"}}>Looks like your are not connect to Internet</h1>
             }
         </>
     )

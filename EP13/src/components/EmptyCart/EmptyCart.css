@@ -1,74 +1,74 @@
 .cart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    padding-top: 120px;
-  }
-  
-  .cart-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-icon {
-    font-size: 24px;
-    margin-right: 8px;
-  }
-  
-  .cart-actions a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-  }
-  
-  .cart-content {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .cart-empty-image img {
-    width: 200px; /* Adjust based on your image size */
-    margin-bottom: 20px;
-  }
-  
-  .cart-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .cart-content p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .cart-button {
-    padding: 10px 20px;
-    background-color: #ff6a00;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  padding-top: 80px;
+}
 
-  .cart-button a{
-    text-decoration: none;
-    color: #FFF;
-  }
-  
-  .cart-button:hover {
-    background-color: #e05b00;
-  }
-  
+.cart-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.cart-actions a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.cart-content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.cart-empty-image img {
+  width: 200px;
+  /* Adjust based on your image size */
+  margin-bottom: 20px;
+}
+
+.cart-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cart-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.cart-button {
+  padding: 10px 20px;
+  background-color: #ff6a00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-button a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.cart-button:hover {
+  background-color: #e05b00;
+}
