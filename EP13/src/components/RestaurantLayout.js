@@ -1,5 +1,5 @@
 import React,{ useState,useEffect } from 'react';
-import RestaurantMenu from './RestaurantHeader/RestaurantHeader';
+import RestaurantMenu from './RestaurantMenu/RestaurantMenu';
 import Deals from './Deals/Deals';
 import Menu from './Menu/Menu';
 import RestaurantShimmer from './RestaurantShimmer/RestaurantShimmer';
