@@ -7,14 +7,69 @@ const SignUpForm = () => {
   const password = useRef(null);
   const name = useRef(null);
 
-  const handleFormValidation = () => {
-    const nameValue = isSignInForm ? null : name.current?.value; // Only use the name if it's the sign-up form
+  const handleFormValidation = async () => {
+    const nameValue = isSignInForm ? null : name.current?.value;
     const isValid = formValidator(email.current.value,password.current.value,nameValue,isSignInForm);
 
     if (isValid.error) {
       alert(isValid.message);
     } else {
-      alert("Form Submitted");
+      if (isSignInForm) {
+        await handleSignIn();
+      } else {
+        await handleSignUp();
+      }
+    }
+  };
+
+  const handleSignUp = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/signup',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: name.current.value,
+          email: email.current.value,
+          password: password.current.value,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert(data.message);
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Sign Up Error:',error);
+      alert('An error occurred during sign up. Please try again later.');
+    }
+  };
+
+  const handleSignIn = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/signin',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.current.value,
+          password: password.current.value,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert(data.message);
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Sign In Error:',error);
+      alert('An error occurred during sign in. Please try again later.');
     }
   };
 
@@ -28,7 +83,7 @@ const SignUpForm = () => {
 
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-      <div className="relative z-10 bg-black bg-opacity-50 text-white p-8 rounded-md max-w-md w-3/12">
+      <div className="relative z-10 bg-black bg-opacity-50 text-white p-8 rounded-md max-w-md w-6/12">
         <h2 className="text-3xl font-bold mb-6">{isSignInForm ? 'Sign In' : 'Sign Up'}</h2>
         <form onSubmit={(e) => { e.preventDefault() }} className="space-y-4">
           {!isSignInForm && (
