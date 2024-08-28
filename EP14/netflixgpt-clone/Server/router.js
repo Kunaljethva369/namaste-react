@@ -42,17 +42,15 @@ router.post('/signin',async (req,res) => {
     try {
         // Check if the user exists
         const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(401).json({ message: 'Invalid email or password.' });
-        }
-
         // Check if the password matches
         const isMatch = await bcrypt.compare(password,user.password);
-        if (!isMatch) {
+
+
+        if (!user || !isMatch) {
             return res.status(401).json({ message: 'Invalid email or password.' });
         }
-
-        res.status(200).json({ message: 'Sign in successful!' });
+        
+        res.status(200).json({ message: 'Sign in successful!', firstName: user.firstName });
     } catch (err) {
         console.error('Sign In Error:',err.message);
         res.status(500).json({ message: 'Server error' });

@@ -1,11 +1,13 @@
 import React,{ useRef,useState } from 'react';
 import { formValidator } from '../../utils/FormValidation';
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
   const [isSignInForm,setIsSignInForm] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const navigate = useNavigate();
 
   const handleFormValidation = async () => {
     const nameValue = isSignInForm ? null : name.current?.value;
@@ -39,6 +41,8 @@ const SignUpForm = () => {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
+        localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:name.current.value}));
+        navigate("/browse");
       } else {
         alert(data.message);
       }
@@ -63,7 +67,8 @@ const SignUpForm = () => {
 
       const data = await response.json();
       if (response.ok) {
-        alert(data.message);
+        localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:data.firstName}));
+        navigate("/browse");
       } else {
         alert(data.message);
       }
