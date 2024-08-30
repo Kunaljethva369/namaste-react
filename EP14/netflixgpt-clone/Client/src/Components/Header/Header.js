@@ -47,7 +47,7 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between text-white items-center p-4 bg-transparent absolute top-0 left-0 px-20 w-full z-10">
+    <header className="flex justify-between sm:flex-row flex-col gap-5 text-white items-center p-4 bg-transparent absolute top-0 left-0 lg:py-6 lg:px-20 sm:px-10 w-full z-10">
       {
         showFullHeader ?
           <>

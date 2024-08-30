@@ -82,7 +82,7 @@ const SignUpForm = () => {
 
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
-      <div className="relative z-10 bg-black bg-opacity-50 text-white p-8 rounded-md max-w-md w-6/12">
+      <div className="relative z-10 bg-black bg-opacity-50 text-white p-8 rounded-md lg:max-w-md sm:max-w-md max-w-md w-11/12 md:w-8/12 lg:w-6/12 xl:w-6/12">
         <h2 className="text-3xl font-bold mb-6">{isSignInForm ? 'Sign In' : 'Sign Up'}</h2>
         <form onSubmit={(e) => { e.preventDefault() }} className="space-y-4">
           {!isSignInForm && (
