@@ -25,57 +25,57 @@ const SignUpForm = () => {
   };
 
   const handleSignUp = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/auth/signup',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: name.current.value,
-          email: email.current.value,
-          password: password.current.value,
-        }),
-      });
+    // try {
+    //   const response = await fetch('http://localhost:3001/api/auth/signup',{
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       firstName: name.current.value,
+    //       email: email.current.value,
+    //       password: password.current.value,
+    //     }),
+    //   });
 
-      const data = await response.json();
-      if (response.ok) {
-        alert(data.message);
-        localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:name.current.value}));
-        navigate("/browse");
-      } else {
-        alert(data.message);
-      }
-    } catch (error) {
-      console.error('Sign Up Error:',error);
-      alert('An error occurred during sign up. Please try again later.');
-    }
+    //   const data = await response.json();
+    //   if (response.ok) {
+    //     alert(data.message);
+    //     localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:name.current.value}));
+    //     navigate("/browse");
+    //   } else {
+    //     alert(data.message);
+    //   }
+    // } catch (error) {
+    //   console.error('Sign Up Error:',error);
+    //   alert('An error occurred during sign up. Please try again later.');
+    // }
   };
 
   const handleSignIn = async () => {
-    try {
-      const response = await fetch('http://localhost:3001/api/auth/signin',{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email.current.value,
-          password: password.current.value,
-        }),
-      });
+    // try {
+    //   const response = await fetch('http://localhost:3001/api/auth/signin',{
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       email: email.current.value,
+    //       password: password.current.value,
+    //     }),
+    //   });
 
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:data.firstName}));
-        navigate("/browse");
-      } else {
-        alert(data.message);
-      }
-    } catch (error) {
-      console.error('Sign In Error:',error);
-      alert('An error occurred during sign in. Please try again later.');
-    }
+    //   const data = await response.json();
+    //   if (response.ok) {
+    //     localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:data.firstName}));
+    //     navigate("/browse");
+    //   } else {
+    //     alert(data.message);
+    //   }
+    // } catch (error) {
+    //   console.error('Sign In Error:',error);
+    //   alert('An error occurred during sign in. Please try again later.');
+    // }
   };
 
   return (

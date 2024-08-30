@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 
-const Header = ({ showFullHeader,setShowFullHeader }) => {
-  const navigate = useNavigate();
+const Header = () => {
+  // const navigate = useNavigate();
 
   const handleLogout = () => {
-    setShowFullHeader(false);
-    navigate("/");
-    localStorage.removeItem("db5d6e71-c39b-454a-868a-981ff41be6e3");
+    // setShowFullHeader(false);
+    // navigate("/");
+    // localStorage.removeItem("db5d6e71-c39b-454a-868a-981ff41be6e3");
   }
 
   return (

@@ -6,23 +6,25 @@ import Browse from './Components/Browse/Browse';
 
 function App() {
 
-    const navigate = useNavigate();
-    const [showFullHeader,setShowFullHeader] = useState(false);
-    useEffect(()=>{
-        if(localStorage.getItem('db5d6e71-c39b-454a-868a-981ff41be6e3') != null){
-            setShowFullHeader(true);
-            navigate("/browse");
-        }
-        else{
-            navigate("/");
-        }
-    },[]);
+    // const navigate = useNavigate();
+    // const [showFullHeader,setShowFullHeader] = useState(false);
+    // useEffect(()=>{
+    //     if(localStorage.getItem('db5d6e71-c39b-454a-868a-981ff41be6e3') != null){
+    //         setShowFullHeader(true);
+    //         navigate("/browse");
+    //     }
+    //     else{
+    //         navigate("/");
+    //     }
+    // },[]);
 
     return (
         <>
             <div className="relative min-h-screen">
-                <Header showFullHeader={showFullHeader} setShowFullHeader={setShowFullHeader} />
-                <Outlet context={{ setShowFullHeader }}/>
+                <Header />
+                <Outlet />
+                {/* <Header showFullHeader={showFullHeader} setShowFullHeader={setShowFullHeader} /> */}
+                {/* <Outlet context={{ setShowFullHeader }}/> */}
             </div>
         </>
     )
