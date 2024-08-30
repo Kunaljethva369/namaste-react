@@ -1,13 +1,16 @@
 import React,{ useRef,useState } from 'react';
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile } from "firebase/auth";
+import { auth } from '../../firebase';
 import { formValidator } from '../../utils/FormValidation';
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../Store/Slice/UserSlice';
 
 const SignUpForm = () => {
   const [isSignInForm,setIsSignInForm] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleFormValidation = async () => {
     const nameValue = isSignInForm ? null : name.current?.value;
@@ -25,57 +28,48 @@ const SignUpForm = () => {
   };
 
   const handleSignUp = async () => {
-    // try {
-    //   const response = await fetch('http://localhost:3001/api/auth/signup',{
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       firstName: name.current.value,
-    //       email: email.current.value,
-    //       password: password.current.value,
-    //     }),
-    //   });
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      );
 
-    //   const data = await response.json();
-    //   if (response.ok) {
-    //     alert(data.message);
-    //     localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:name.current.value}));
-    //     navigate("/browse");
-    //   } else {
-    //     alert(data.message);
-    //   }
-    // } catch (error) {
-    //   console.error('Sign Up Error:',error);
-    //   alert('An error occurred during sign up. Please try again later.');
-    // }
+      const user = userCredential.user;
+      updateProfile(user,{
+        displayName: name.current.value,
+      })
+      .then(()=>{
+        const {uid,email,displayName} = user.current;
+        dispatch(addUser({
+          uid,
+          email,
+          displayName
+        }));
+      })
+      .catch((err)=>{
+        alert("An error occurred during sign up. Please try again later.");
+      });
+      alert('Sign up successful!');
+    } catch (error) {
+      console.error('Sign Up Error:',error.message);
+      alert('An error occurred during sign up. Please try again later.');
+    }
   };
 
   const handleSignIn = async () => {
-    // try {
-    //   const response = await fetch('http://localhost:3001/api/auth/signin',{
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       email: email.current.value,
-    //       password: password.current.value,
-    //     }),
-    //   });
-
-    //   const data = await response.json();
-    //   if (response.ok) {
-    //     localStorage.setItem("db5d6e71-c39b-454a-868a-981ff41be6e3",JSON.stringify({email:email.current.value,fname:data.firstName}));
-    //     navigate("/browse");
-    //   } else {
-    //     alert(data.message);
-    //   }
-    // } catch (error) {
-    //   console.error('Sign In Error:',error);
-    //   alert('An error occurred during sign in. Please try again later.');
-    // }
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      );
+      const user = userCredential.user;
+      alert('Sign In successful!');
+    } catch (error) {
+      console.error('Sign In Error:',error.message);
+      alert('An error occurred during sign in. Please try again later.');
+    }
   };
 
   return (

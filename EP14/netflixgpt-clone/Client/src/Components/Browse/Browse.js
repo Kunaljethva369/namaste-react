@@ -1,11 +1,6 @@
-import React, { useEffect } from 'react';
-import { useOutletContext } from 'react-router-dom';
+import React from 'react';
 
 function Browse() {
-  // const { setShowFullHeader } = useOutletContext();
-  // useEffect(()=>{
-  //   setShowFullHeader(true);
-  // },[]);
   return (
     <div className='min-h-screen bg-black'></div>
   )
