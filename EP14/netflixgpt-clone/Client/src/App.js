@@ -1,16 +1,24 @@
-import React,{ Children,useEffect,useState } from 'react'
+import React from 'react'
 import Header from './Components/Header/Header';
 import SignInForm from './Components/SignUpForm/SignUpForm';
-import { createBrowserRouter,Outlet,useNavigate } from 'react-router-dom'
+import { createBrowserRouter,Outlet } from 'react-router-dom'
 import Browse from './Components/Browse/Browse';
+import {
+    QueryClient,
+    QueryClientProvider
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 function App() {
     return (
         <>
-            <div className="relative min-h-screen">
-                <Header />
-                <Outlet />
-            </div>
+            <QueryClientProvider client={queryClient}>
+                <div className="relative min-h-screen">
+                    <Header />
+                    <Outlet />
+                </div>
+            </QueryClientProvider>
         </>
     )
 }
