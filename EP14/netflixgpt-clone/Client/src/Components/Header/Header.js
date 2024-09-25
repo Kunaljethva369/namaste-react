@@ -47,11 +47,11 @@ const Header = () => {
   }
 
   return (
-    <header className="flex justify-between sm:flex-row flex-col gap-5 text-white items-center p-4 bg-transparent absolute top-0 left-0 lg:py-5 lg:px-20 sm:px-10 w-full z-20">
+    <header className="flex justify-between flex-row gap-5 text-white items-center p-4 bg-transparent absolute top-0 left-0 lg:py-5 lg:px-20 sm:px-10 px-4 py-4 w-full z-20">
       {
         showFullHeader ?
           <>
-            <div className="w-[9.25rem] h-[2.5rem] text-[#e50914] fill-current block">
+            <div className="sm:w-[9.25rem] w-[120px] sm:h-[2.5rem]  text-[#e50914] fill-current block">
               <svg
                 viewBox="0 0 111 30"
                 version="1.1"
@@ -67,15 +67,15 @@ const Header = () => {
             </div>
             <div className='Nav flex'>
               <nav>
-                <ul className='flex gap-5'>
+                <ul className='flex sm:gap-5 gap-[10px]'>
                   <li><Link to="/shows">Shows</Link></li>
                   <li><Link to="/mylist">MyList</Link></li>
                 </ul>
               </nav>
-              <div className='ml-4'>
+              <div className='sm:ml-4 ml-[8px]'>
                 <button onClick={() => handleLogout()}>Logout</button>
               </div>
-              <h2 className='ml-4'>{userNameState}</h2>
+              <h2 className='sm:ml-4 ml-[8px]'>{userNameState}</h2>
             </div>
           </>
           :

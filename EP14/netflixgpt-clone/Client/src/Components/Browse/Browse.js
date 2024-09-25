@@ -43,7 +43,7 @@ function Browse() {
   const { original_title,overview,id } = data?.results[0];
   return (
     <>
-      <div className='pt-[30%] bg-black md:pt-0 relative h-svh'>
+      <div className='sm:pt-[30%] bg-black md:pt-0 relative h-svh'>
         <BgPlayingMoive id={id} />
         <MovieTitlePlayBtn original_title={original_title} overview={overview} />
       </div>
