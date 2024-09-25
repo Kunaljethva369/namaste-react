@@ -25,7 +25,7 @@ const BgPlayingMoive = ({ id }) => {
         }
     })
     return (
-        <div className="absolute sm:top-[-10rem] top-10 left-0 right-0 bottom-0 aspect-video">
+        <div className="sm:absolute relative sm:top-[-10rem] top-10 left-0 right-0 bottom-0 aspect-video">
             <iframe
                 src={`https://www.youtube.com/embed/${trailerVideo?.[0]?.key}?autoplay=1&mute=1&controls=0&modestbranding=1&fs=0&rel=0&loop=1`}
                 width="100%"

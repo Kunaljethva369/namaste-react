@@ -11,16 +11,3 @@
     /* Firefox */
 }
 
-@media only screen and (max-width:640px) {
-    .movie-card{
-        position: relative;
-        background: black;
-        top: -26rem;
-        left: 0px;
-        padding-left: 0px;
-        left: -30px;
-        /* width: 100%; */
-        overflow-x: hidden;
-        padding-right: 0px;
-    }
-}

@@ -5,6 +5,7 @@ import App,{ router } from './App';
 import { RouterProvider } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import AppStore from './Store/AppStore';
+import './App.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
