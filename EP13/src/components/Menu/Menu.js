@@ -3,7 +3,9 @@ import './MenuAccordion.css';
 import RestaurantHeader from './RestaurantHeader';
 
 function Menu({ individualRestaurant }) {
-    const menu = individualRestaurant?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((ele) => {
+    let mobdesk = 0;
+    window.innerWidth < 767 ? mobdesk = 5 : mobdesk = 4;
+    const menu = individualRestaurant?.data?.cards[mobdesk]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((ele) => {
         if (ele?.card?.card?.['@type'] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
             return ele;
         }

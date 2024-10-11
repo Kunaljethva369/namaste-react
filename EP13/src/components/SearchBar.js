@@ -17,7 +17,7 @@ function SearchBar({resturantData,setfilteredRestaurant}) {
         setIsChecked(!isChecked);
         if (!isChecked) {
             const topResturrant = resturantData.filter((ele) => {
-                if (ele.info.avgRating > 4.4) {
+                if (ele.info.avgRating > 4) {
                     return ele;
                 };
             });

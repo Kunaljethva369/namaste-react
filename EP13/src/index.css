@@ -17,7 +17,7 @@
     position: fixed;
     width: 100%;
     background-color: white;
-    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
     z-index: 1;
 }
 
@@ -49,7 +49,7 @@ nav ul li a {
     font-weight: 500;
 }
 
-.cart-count{
+.cart-count {
     font-size: 14px;
     position: relative;
     top: -12px;
@@ -226,6 +226,13 @@ nav ul li a {
 }
 
 
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .card-container,
+    .shimmer-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
 @media only screen and (max-width:767px) {
 
     .card-container,
@@ -240,5 +247,10 @@ nav ul li a {
     .search-container {
         justify-content: center;
     }
+    .restaurant-detail-container .restaurant-title,.breadcrumb{
+        padding-left: 20px;
+    }
+    .restaurant-detail-container{
+        padding-top: 100px !important;
+    }
 }
-
