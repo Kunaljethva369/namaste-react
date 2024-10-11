@@ -127,6 +127,8 @@ nav ul li a {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding-top: 20px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .card-container .card {
@@ -140,13 +142,12 @@ nav ul li a {
 }
 
 .shimmer-card {
-    width: 300px;
+    width: 100%;
     padding: 5px;
     border-radius: 8px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 10px;
 }
 
 .shimmer {
@@ -227,9 +228,10 @@ nav ul li a {
 
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
+
     .card-container,
-    .shimmer-container{
-        grid-template-columns: repeat(2,1fr);
+    .shimmer-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -238,19 +240,39 @@ nav ul li a {
     .card-container,
     .shimmer-container {
         grid-template-columns: auto;
+        padding: 10px;
+    }
+
+    .header {
+        padding: 0px;
     }
 
     nav {
         padding-right: 20px;
     }
 
+    .checkbox-label {
+        font-size: 12px;
+    }
+
+    .custom-checkbox {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+
     .search-container {
         justify-content: center;
+        padding-left: 0px;
+        gap: 10px;
     }
-    .restaurant-detail-container .restaurant-title,.breadcrumb{
+
+    .restaurant-detail-container .restaurant-title,
+    .breadcrumb {
         padding-left: 20px;
     }
-    .restaurant-detail-container{
+
+    .restaurant-detail-container {
         padding-top: 100px !important;
     }
 }

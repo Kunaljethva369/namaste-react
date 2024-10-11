@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React,{ useState } from 'react'
 
-function SearchBar({resturantData,setfilteredRestaurant}) {
+function SearchBar({ resturantData,setfilteredRestaurant }) {
 
     const [searchText,setSearchText] = useState("");
     const [isChecked,setIsChecked] = useState(false);
@@ -16,16 +16,15 @@ function SearchBar({resturantData,setfilteredRestaurant}) {
     const handleTop = () => {
         setIsChecked(!isChecked);
         if (!isChecked) {
-            const topResturrant = resturantData.filter((ele) => {
-                if (ele.info.avgRating > 4) {
-                    return ele;
-                };
-            });
-            setfilteredRestaurant(topResturrant);
-        }
-        else {
+            const maxRating = Math.max(...resturantData.map((ele) => ele.info.avgRating));
+
+            const topRestaurant = resturantData.filter((ele) => ele.info.avgRating === maxRating);
+
+            setfilteredRestaurant(topRestaurant);
+        } else {
             setfilteredRestaurant(resturantData);
         }
+
     }
 
     return (

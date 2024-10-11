@@ -3,16 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Header from "./components/Header";
 import MainLayout from "./components/MainLayout";
-import About from './components/About';
-import Contact from './components/Contact';
 import { createBrowserRouter,Outlet,RouterProvider } from 'react-router-dom';
 import Error from "./components/Error";
 import RestaurantLayout from "./components/RestaurantLayout";
-import Cart from './components/Cart/CartItem';
 import { Provider } from 'react-redux';
 import AppStore from "./store/AppStore";
 
-const Grocery = lazy(() => import('./components/Grocery'));
+const Cart = lazy(() => import('./components/Cart/CartItem'));
 
 const AppLayout = () => {
     return (
@@ -35,22 +32,10 @@ const router = createBrowserRouter([
                 element: <MainLayout />
             },
             {
-                path: "/about",
-                element: <About />
-            },
-            {
                 path: "/cart",
-                element: <Cart />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
-            },
-            {
-                path: "/grocery",
                 element:
                     <Suspense fallback={<h1>Loading...</h1>}>
-                        <Grocery />
+                        <Cart />
                     </Suspense>
             },
             {
