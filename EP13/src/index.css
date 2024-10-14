@@ -276,3 +276,8 @@ nav ul li a {
         padding-top: 100px !important;
     }
 }
+
+.error{
+    text-align: center;
+    color: red;
+}

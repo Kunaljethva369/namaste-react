@@ -6,7 +6,8 @@ import RestaurantShimmer from './RestaurantShimmer/RestaurantShimmer';
 
 function RestaurantLayout() {
     const [individualRestaurant,setIndividualRestaurant] = useState();
-    
+    const [showError,setShowError] = useState(false);
+
     useEffect(() => {
         const url = window.location.href;
         const regex = /[/&]resid=([^&]*)/;
@@ -18,10 +19,16 @@ function RestaurantLayout() {
     let mobdesk = 0;
     window.innerWidth < 767 ? mobdesk = 5 : mobdesk = 4;
     const fetchRestaurant = async (resId) => {
-        const data = await fetch(`https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-        // const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
-        const response = await data.json();
-        setIndividualRestaurant(response);
+        try {
+            const data = await fetch(`https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
+            // const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
+            const response = await data.json();
+            setIndividualRestaurant(response);
+        }
+        catch (err) {
+            setIndividualRestaurant();
+            setShowError(true)
+        }
     }
 
     return (
@@ -32,7 +39,13 @@ function RestaurantLayout() {
                         <RestaurantMenu individualRestaurant={individualRestaurant} setIndividualRestaurant={setIndividualRestaurant} />
                         <Deals individualRestaurant={individualRestaurant} />
                         <Menu individualRestaurant={individualRestaurant} />
-                    </> : <RestaurantShimmer />
+                    </> : showError ? '' : <RestaurantShimmer />
+            }
+            {
+                showError ?
+                    <>
+                        <h2 className="error" style={{paddingTop:'100px'}}>Network Error, please try again</h2>
+                    </> : ''
             }
         </>
     )
