@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import React,{ useEffect,useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useNavigate,useLocation } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { useDispatch,useSelector } from 'react-redux';
 import { addUser,removeUser } from '../../Store/Slice/UserSlice';
@@ -12,6 +12,7 @@ const Header = () => {
   const [userNameState,setUserNameState] = useState('');
   const [showFullHeader,setShowFullHeader] = useState(false);
   const displayName = useSelector((store) => store?.User?.displayName);
+  const location = useLocation();
 
   useEffect(() => {
     if (displayName) {
@@ -46,6 +47,7 @@ const Header = () => {
     navigate("/");
   }
 
+
   return (
     <header className="flex justify-between flex-row gap-5 text-white items-center p-4 bg-transparent absolute top-0 left-0 lg:py-5 lg:px-20 sm:px-10 px-4 py-4 w-full z-20">
       {
@@ -67,15 +69,22 @@ const Header = () => {
             </div>
             <div className='Nav flex'>
               <nav>
-                <ul className='flex sm:gap-5 gap-[10px]'>
-                  <li><Link to="/shows">Shows</Link></li>
-                  <li><Link to="/mylist">MyList</Link></li>
+                <ul className='flex sm:gap-5 gap-[10px] bg-purple-800 sm:px-2 sm:py-2 p-[0.2rem] rounded'>
+                  {
+                    location.pathname === "/browse" ?
+                      <Link to='/gptsearch'>
+                        Gpt Search
+                      </Link> :
+                      <Link to='/browse'>
+                        Homepage
+                      </Link>
+                  }
                 </ul>
               </nav>
-              <div className='sm:ml-4 ml-[8px]'>
+              <h2 className='sm:ml-4 ml-[8px] self-center'>{userNameState}</h2>
+              <div className='sm:ml-4 ml-[8px] self-center'>
                 <button onClick={() => handleLogout()}>Logout</button>
               </div>
-              <h2 className='sm:ml-4 ml-[8px]'>{userNameState}</h2>
             </div>
           </>
           :

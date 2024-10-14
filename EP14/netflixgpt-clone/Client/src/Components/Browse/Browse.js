@@ -47,7 +47,7 @@ function Browse() {
         <BgPlayingMoive id={id} />
         <MovieTitlePlayBtn original_title={original_title} overview={overview} />
       </div>
-      <MovieList title={"Top Playing"} allMovieData={data?.results.splice(1)} />
+      <MovieList title={"Top Playing"} allMovieData={data?.results.splice(1)} marginTop={'-15rem'} />
     </>
   )
 }

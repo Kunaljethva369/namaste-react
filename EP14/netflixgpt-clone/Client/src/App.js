@@ -3,6 +3,7 @@ import Header from './Components/Header/Header';
 import SignInForm from './Components/SignUpForm/SignUpForm';
 import { createBrowserRouter,Outlet } from 'react-router-dom'
 import Browse from './Components/Browse/Browse';
+import GptSearch from './Components/GptSearch/GptSearch';
 import {
     QueryClient,
     QueryClientProvider
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "/browse",
                 element: <Browse />
+            },
+            {
+                path: "/gptsearch",
+                element: <GptSearch />
             }
         ]
     }
