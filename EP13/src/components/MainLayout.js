@@ -15,8 +15,8 @@ const MainLayout = () => {
 
     const fetchData = async () => {
         setLoading(true);
-        // const data = await fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true');
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true');
+        const data = await fetch('https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true');
+        // const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true');
         const response = await data.json();
         let mobdesk = 0;
         window.innerWidth < 767 ? mobdesk = 2 :  mobdesk = 1;
