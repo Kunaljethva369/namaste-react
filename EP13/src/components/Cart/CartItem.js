@@ -24,11 +24,20 @@ const CartItem = () => {
             {Item.map(function (ele) {
               return (
                 <div className="cart-item">
-                  <img
-                    src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${ele[0]?.card?.info?.imageId}`}
-                    alt="Mens Casual Premium Slim Fit T-Shirts"
-                    className="product-image"
-                  />
+                  {
+                    ele[0]?.card?.info?.imageId == undefined ?
+                      <img
+                        src={`https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?cs=srgb&dl=pexels-chanwalrus-958545.jpg&fm=jpg`}
+                        alt="Mens Casual Premium Slim Fit T-Shirts"
+                        className="product-image"
+                      />
+                      :
+                      <img
+                        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${ele[0]?.card?.info?.imageId}`}
+                        alt="Mens Casual Premium Slim Fit T-Shirts"
+                        className="product-image"
+                      />
+                  }
                   <span className="product-name">{ele[0]?.card?.info?.name}</span>
                   <span className="product-price">₹{ele[0]?.card?.info?.price ? (ele[0]?.card?.info?.price / 100) : (ele[0]?.card?.info?.defaultPrice / 100)}</span>
                   <div className="quantity-control">

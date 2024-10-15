@@ -23,7 +23,7 @@ function ItemList({ data }) {
                                 <div className="item-info">
                                     <h4 className="item-name">{ele?.card?.info.name}</h4>
                                     <p className="item-price">
-                                        ₹{ele?.card?.info.price ? (ele?.card?.info.price / 100) : (ele?.card?.info.defaultPrice / 100)}
+                                        ₹{ele?.card?.info.price ? Math.round((ele?.card?.info.price / 100)) : Math.round((ele?.card?.info.defaultPrice / 100))}
                                         <span className="discount"></span>
                                     </p>
                                     <div className="item-rating">
