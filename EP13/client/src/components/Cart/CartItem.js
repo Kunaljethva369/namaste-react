@@ -4,6 +4,7 @@ import EmptyCart from '../EmptyCart/EmptyCart';
 import { useDispatch,useSelector } from 'react-redux';
 import { addItem,removeItem } from '../../Slice/cartSlice';
 import { clearCart } from "../../Slice/cartSlice";
+import Checkout from "../Checkout/Checkout";
 
 const CartItem = () => {
   const Item = useSelector((store) => store.cart.items);
@@ -52,6 +53,7 @@ const CartItem = () => {
             <div className="cart-total">
               <span>Grand Total:-  ₹{grandTotal.toFixed(2)}</span>
             </div>
+            <Checkout />
           </>
           : <EmptyCart />
       }

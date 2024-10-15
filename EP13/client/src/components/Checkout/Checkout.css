@@ -1,0 +1,56 @@
+.cart-summary {
+    text-align: center;
+}
+
+
+.paypal-buttons {
+    margin-top: 20px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 16px;
+    float: right;
+    cursor: pointer;
+}
+
+.checkout-button {
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    align-self: end;
+}
+
+@media only screen and (max-width:767px) {
+    .modal{
+        width: 340px;
+    }
+}
