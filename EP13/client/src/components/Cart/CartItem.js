@@ -1,18 +1,25 @@
-import React from 'react';
+import { useEffect } from 'react';
 import './CartItem.css';
 import EmptyCart from '../EmptyCart/EmptyCart';
 import { useDispatch,useSelector } from 'react-redux';
-import { addItem,removeItem } from '../../Slice/cartSlice';
+import { addItem,removeItem,updateGrandTotal } from '../../Slice/cartSlice';
 import { clearCart } from "../../Slice/cartSlice";
 import Checkout from "../Checkout/Checkout";
 
 const CartItem = () => {
   const Item = useSelector((store) => store.cart.items);
+  const grandTotal = useSelector((store) => store.cart.grandTotal);
   const dispatch = useDispatch();
-  const grandTotal = Item?.reduce((total,item) => {
-    const itemPrice = item[0]?.card?.info?.price || item[0]?.card?.info?.defaultPrice;
-    return total + (itemPrice / 100) * (item.quantity || 1);
-  },0);
+  useEffect(() => {
+    const total = Item.reduce((sum,item) => {
+      const itemPrice = item[0]?.card?.info?.price || item[0]?.card?.info?.defaultPrice;
+      return sum + (itemPrice / 100) * (item.quantity || 1);
+    },0);
+
+    dispatch(updateGrandTotal(total));
+  },[Item,dispatch]);
+
+
   return (
     <div className="cart-container">
       {
@@ -24,7 +31,7 @@ const CartItem = () => {
             </div>
             {Item.map(function (ele) {
               return (
-                <div className="cart-item">
+                <div className="cart-item" key={ele.id}>
                   {
                     ele[0]?.card?.info?.imageId == undefined ?
                       <img
